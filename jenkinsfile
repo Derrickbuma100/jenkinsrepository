@@ -21,5 +21,29 @@ pipeline{
 	   	 		sh 'ls cpu'
 	   	 	}
 	   	 }
+	   	 stage(5-parelle job){
+	   	 	parellel{
+	   	 		stage(1-first para job){
+	   	 			steps{
+	   	 				sh 'cat /etc/passwd'
+	   	 			}
+	   	 		}
+	   	 		stage(2-second parajob){
+	   	 			steps{
+	   	 				sh 'cat/etc/os-release'
+	   	 			}
+	   	 		}
+
+	   	 	}
+	   	 }
+         stage(8-end of job){
+            steps{
+                echo 'end of pipeline'
+            }
+            }
+                
+            )
+         }
+
 	   }
 }
